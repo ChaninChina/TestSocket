@@ -16,7 +16,7 @@ public class MD5Util {
                 '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'
         };
         try {
-            byte[] btInput = key.getBytes();
+            byte[] btInput = key.getBytes("GBK");
             // 获得MD5摘要算法的 MessageDigest 对象
             java.security.MessageDigest mdInst = java.security.MessageDigest.getInstance(ALGORITHM);
             // 使用指定的字节更新摘要

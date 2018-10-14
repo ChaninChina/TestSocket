@@ -27,7 +27,7 @@ public class SocketThread extends Thread {
                 reader = new java.io.BufferedReader(new java.io.InputStreamReader(
                         socket.getInputStream(), com.chanin.utils.Constants.UTF8));
                 printWriter = new java.io.PrintWriter(new java.io.BufferedWriter(new java.io.OutputStreamWriter(
-                        socket.getOutputStream(), com.chanin.utils.Constants.UTF8)), true);
+                        socket.getOutputStream(), com.chanin.utils.Constants.GBK)), true);
                 new Thread(){
                     @Override
                     public void run() {
@@ -50,8 +50,8 @@ public class SocketThread extends Thread {
                     if (readLine != null && readLine.length() > 0) {
                         com.chanin.utils.Log.d(TAG, readLine);
                         if (readLine.contains("StartDataGet00>>>")) {
-                            //printWriter.println("Start00>>>{{3@@&301}}" + com.chanin.utils.MD5Util.MD5("{{3@@&301}}") + "*****");
-                            printWriter.println("Start00>>>NODATA" + com.chanin.utils.MD5Util.MD5("NODATA") + "*****");
+                            printWriter.println("Start00>>>{{3@@&301}}" + com.chanin.utils.MD5Util.MD5("{{3@@&301}}") + "*****");
+                            //printWriter.println("Start00>>>NODATA" + com.chanin.utils.MD5Util.MD5("NODATA") + "*****");
                             printWriter.flush();
                         } else if (readLine.contains("StartDataGet60>>>")) {
                             String data = "{{抽检超时@@2018-07-14@@订单号;线别;计划完成时间;@@0还未处理@@<NULL>@@<NULL>@@2018-07-14 20:03:00@@1}}" +
